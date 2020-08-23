@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EntityFrameworkWithAzureActiveDirectoryAuth
 {
@@ -7,7 +8,7 @@ namespace EntityFrameworkWithAzureActiveDirectoryAuth
     {
         private readonly TestDbContext dbContext;
 
-        public Query(TestDbContext dbContext)
+        public Query(TestDbContext dbContext, ILogger logger = null)
         {
             this.dbContext = dbContext;
         }
