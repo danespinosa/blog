@@ -1,9 +1,7 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace EntityFrameworkWithAzureActiveDirectoryAuth
 {
@@ -21,19 +19,15 @@ namespace EntityFrameworkWithAzureActiveDirectoryAuth
         public void ConfigureServices(IServiceCollection services)
         {
             string connectionString = Configuration.GetConnectionString("TestDb");
-
             services.AddRazorPages();
-            services.AddDbContext<TestDbContext>(builder => builder.UseSqlServer(connectionString));
+            services.AddDbContext<TestDbContext>(options => options.UseSqlServer(connectionString));
             services.AddSingleton<Query>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseDeveloperExceptionPage();
 
             app.UseRouting();
             app.UseEndpoints(endpoints =>

@@ -16,6 +16,10 @@ namespace EntityFrameworkWithAzureActiveDirectoryAuth
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                })
+                .UseDefaultServiceProvider(configure =>
+                {
+                    // configure.ValidateScopes = true;
                 });
         }
     }
