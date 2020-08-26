@@ -19,7 +19,7 @@ namespace EntityFrameworkWithAzureActiveDirectoryAuth
                 })
                 .UseDefaultServiceProvider(configure =>
                 {
-                    // configure.ValidateScopes = true;
+                    configure.ValidateScopes = true;
                 });
         }
     }
