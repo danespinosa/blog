@@ -21,14 +21,14 @@ namespace EntityFrameworkWithAzureActiveDirectoryAuth
             string connectionString = Configuration.GetConnectionString("TestDb");
             services.AddRazorPages();
             services.AddDbContext<TestDbContext>(options => options.UseSqlServer(connectionString));
-            services.AddSingleton<Query>();
+            services.AddTransient<Query>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
             app.UseDeveloperExceptionPage();
-
+            app.UseBrowserLink();
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
