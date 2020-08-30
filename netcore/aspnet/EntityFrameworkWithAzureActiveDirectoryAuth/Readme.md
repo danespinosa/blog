@@ -110,4 +110,4 @@ public void ConfigureServices(IServiceCollection services)
 ## Links
 - [ASP.NET Dependency Injection.](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1)
 - [Entity Framework and AAD Authentication.](https://entityframeworkcore.com/knowledge-base/54187241/ef-core-connection-to-azure-sql-with-managed-identity)
-- [Code]
+- [Code](https://github.com/danespinosa/blog/tree/master/netcore/aspnet/EntityFrameworkWithAzureActiveDirectoryAuth)
